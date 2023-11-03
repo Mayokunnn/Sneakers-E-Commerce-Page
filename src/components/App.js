@@ -9,6 +9,7 @@ import imagethumb3 from "../images/image-product-3-thumbnail.jpg";
 import imagethumb4 from "../images/image-product-4-thumbnail.jpg";
 import { NavBar } from "./NavBar";
 import { Main } from "./Main";
+import { Menu } from "./Menu";
 
 const images = [image1, image2, image3, image4];
 const imagesThumb = [imagethumb1, imagethumb2, imagethumb3, imagethumb4];
@@ -28,12 +29,13 @@ export const product = {
 
 console.log(product);
 
-export const navItems = ["Collection", "Men", "Women", "About", "Contact"];
+export const navItems = ["Collections", "Men", "Women", "About", "Contact"];
 
 function App() {
   const [itemsCount, setItemsCount] = useState(1);
   const [numProduct, setNumProduct] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   function handleCartClick() {
     setIsCartOpen((cart) => (cart = !cart));
@@ -43,18 +45,24 @@ function App() {
     setItemsCount(item);
   }
 
+  function handleMenuClick() {
+    setMenuOpen((menu) => !menu);
+  }
+
   return (
-    <div className=" md:mx-auto md:container">
+    <div className=" md:mx-auto md:container relative">
       {/* <Button>
         <img src={cart} className="w-4 " alt="Cart"></img> Add to Cart
       </Button>
       <Button>Checkout</Button> */}
+      {menuOpen && <Menu setMenu={setMenuOpen} />}
       <NavBar
         array={numProduct}
         setArray={setNumProduct}
         setItemsCount={setItemsCount}
         isCartOpen={isCartOpen}
         handleCartClick={handleCartClick}
+        setMenu={handleMenuClick}
       />
       <Main
         itemsCount={itemsCount}

@@ -12,12 +12,13 @@ export function NavBar({
   setItemsCount,
   isCartOpen,
   handleCartClick,
+  setMenu,
 }) {
   return (
     <div className="container mx-auto">
       <div className="w-full flex justify-between md:gap-3 p-7 border-b-[1px] relative ">
         <div className="flex gap-2 md:gap-8 lg:gap-16 items-center">
-          <button className=" md:hidden h-3 md:h-6">
+          <button onClick={setMenu} className=" md:hidden h-3 md:h-6">
             <img src={menu} alt="Menu"></img>
           </button>
           <img src={logo} alt="Sneakers" className="h-4 md:h-6 md:mr-1"></img>
