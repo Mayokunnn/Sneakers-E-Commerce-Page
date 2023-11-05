@@ -3,7 +3,7 @@ import { navItems } from "./App";
 
 export function Menu({ setMenu }) {
   return (
-    <div className="bg-white h-screen md:hidden w-3/4 fixed z-10 flex flex-col gap-12 pl-6 py-6">
+    <div className="bg-white h-screen md:hidden w-3/4 fixed z-10 flex flex-col gap-12 pl-7 py-6">
       <div>
         <img
           className="cursor-pointer"
